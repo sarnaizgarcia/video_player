@@ -1,0 +1,20 @@
+.option {
+  width: 100%;
+  background-color: var(--surface-color);
+  color: var(--font-color-on-surface);
+  font-size: var(--font-size-big);
+  font-weight: var(--font-weight-normal);
+  cursor: pointer;
+}
+
+.option:hover {
+  background-color: var(--primary-color);
+  color: var(--font-color-on-primary);
+  font-weight: var(--font-weight-important);
+}
+
+.option:focus {
+  background-color: var(--primary-color);
+  color: var(--font-color-on-primary);
+  font-weight: var(--font-weight-important);
+}

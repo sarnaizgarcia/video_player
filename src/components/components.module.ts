@@ -6,12 +6,14 @@ import { YtpButtonComponent } from './ytp-button';
 import { YtpFieldComponent } from './ytp-field';
 import { YtpVideoFormComponent } from './ytp-video-form';
 import { YtpPlayerComponent } from './ytp-player';
+import { YtpOptionComponent } from './ytp-option';
 
 const components = [
   YtpButtonComponent,
   YtpFieldComponent,
   YtpVideoFormComponent,
-  YtpPlayerComponent
+  YtpPlayerComponent,
+  YtpOptionComponent
 ];
 
 @NgModule({

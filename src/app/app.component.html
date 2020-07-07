@@ -1,5 +1,6 @@
-<ytp-player
-  [videoUrl]="'https://www.youtube.com/watch?v=0DuXjdkAYrg'"
-  [bookmarket]="true"
-  (onBookmarkEvent)="onEvent($event)"
-></ytp-player>
+<ytp-option
+  [option]="option"
+  [index]="0"
+  (onSelect)="onEvent($event)"
+  (onKeyPress)="onEvent($event)"
+></ytp-option>
