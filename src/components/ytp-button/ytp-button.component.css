@@ -5,6 +5,10 @@
   font-weight: var(--font-weight-normal);
 }
 
+.ytp-button:focus {
+  outline: none;
+}
+
 .ytp-button.disabled {
   cursor: no-drop;
 }
@@ -40,9 +44,17 @@
   color: var(--font-color-on-primary);
 }
 
+.ytp-button.primary:focus {
+  border: solid 3px var(--secondary-color);
+}
+
 .ytp-button.secondary {
   background-color: var(--secondary-color);
   color: var(--font-color-on-secondary);
+}
+
+.ytp-button.secondary:focus {
+  border: solid 3px var(--primary-color);
 }
 
 .ytp-button.primary.disabled {

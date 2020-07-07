@@ -1,1 +1,5 @@
-<ytp-video-form (onSubmitVideo)="onEvent($event)"></ytp-video-form>
+<ytp-player
+  [videoUrl]="'https://www.youtube.com/watch?v=0DuXjdkAYrg'"
+  [bookmarket]="true"
+  (onBookmarkEvent)="onEvent($event)"
+></ytp-player>

@@ -5,11 +5,13 @@ import { FormsModule } from '@angular/forms';
 import { YtpButtonComponent } from './ytp-button';
 import { YtpFieldComponent } from './ytp-field';
 import { YtpVideoFormComponent } from './ytp-video-form';
+import { YtpPlayerComponent } from './ytp-player';
 
 const components = [
   YtpButtonComponent,
   YtpFieldComponent,
-  YtpVideoFormComponent
+  YtpVideoFormComponent,
+  YtpPlayerComponent
 ];
 
 @NgModule({

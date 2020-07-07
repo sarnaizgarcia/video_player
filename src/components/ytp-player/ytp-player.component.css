@@ -1,0 +1,30 @@
+.container-player {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.empty-player {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 560px;
+  height: 315px;
+  background-color: var(--primary-color);
+  color: var(--font-color-on-primary);
+  border-radius: 4px;
+}
+
+.button-set {
+  margin-top: 20px;
+}
+
+.video-icon {
+  font-size: 80px;
+}
+
+.button-icon {
+  font-size: 55px;
+}

@@ -1,0 +1,17 @@
+<div class="container-player">
+  <ng-container *ngIf="videoUrl !== ''; else elseTemplate">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/0DuXjdkAYrg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </ng-container>
+  <ng-template #elseTemplate>
+      <div class="empty-player">
+        <span class="video-icon material-icons">
+          videocam_off
+          </span>
+      </div>
+  </ng-template>
+  <div class="button-set">
+    <ytp-button [type]="'secondary'" [size]="'big'" [disabled]="videoUrl === ''" (clickButton)="onBookmarkClick()">
+      <span class="button-icon material-icons">{{buttonIcon}}</span>
+    </ytp-button>
+  </div>
+</div>
