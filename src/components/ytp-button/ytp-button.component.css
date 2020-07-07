@@ -1,0 +1,56 @@
+.ytp-button {
+  border-radius: 4px;
+  border: solid 1px black;
+  cursor: pointer;
+  font-weight: var(--font-weight-normal);
+}
+
+.ytp-button.disabled {
+  cursor: no-drop;
+}
+
+.ytp-button:hover {
+  transform: scale(1.1);
+}
+
+.ytp-button.disabled:hover {
+  transform: scale(0.9);
+}
+
+.ytp-button.small {
+  width: 50px;
+  height: 20px;
+  font-size: var(--font-size-small);
+}
+
+.ytp-button.normal {
+  width: 90px;
+  height: 40px;
+  font-size: var(--font-size-normal);
+}
+
+.ytp-button.big {
+  width: 130px;
+  height: 60px;
+  font-size: var(--font-size-big);
+}
+
+.ytp-button.primary {
+  background-color: var(--primary-color);
+  color: var(--font-color-on-primary);
+}
+
+.ytp-button.secondary {
+  background-color: var(--secondary-color);
+  color: var(--font-color-on-secondary);
+}
+
+.ytp-button.primary.disabled {
+  background-color: var(--primary-color-dark);
+  color: var(--font-color-on-primary);
+}
+
+.ytp-button.secondary.disabled {
+  background-color: var(--secondary-color-dark);
+  color: var(--font-color-on-secondary);
+}
