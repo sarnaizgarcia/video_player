@@ -1,1 +1,8 @@
-<ytp-button [size]="'normal'" [type]="'secondary'" [disabled]="true" (clickButton)="onEvent($event)">Button</ytp-button>
+<h1>Value: {{textValue}}</h1>
+
+<ytp-field
+  [label]="'Test input'"
+  [error]="'Test error'"
+  [(inputValue)]="textValue"
+  (onBlur)="onEvent($event)"
+></ytp-field>

@@ -1,0 +1,11 @@
+<div class="ytp-field">
+  <label class="label-field" for="input-{{label}}">{{label}}</label>
+  <input
+    type="text"
+    class="text-field"
+    name="input-{{label}}"
+    [(ngModel)]="inputValue"
+    (blur)="blurField($event)"
+  />
+  <span class="error-field">{{error}}</span>
+</div>
