@@ -1,0 +1,21 @@
+<form class="youtube-form" (submit)="submitAction()">
+  <ytp-field
+    [label]="'Tag name*'"
+    [error]="tagNameValidationError"
+    class="field"
+    [(inputValue)]="tagName"
+    (onBlur)="onBlurTagName()"
+  ></ytp-field>
+  <ytp-field
+    [label]="'Video url*'"
+    [error]="videoUrlValidationError"
+    class="field"
+    [(inputValue)]="videoUrl"
+    (onBlur)="onBlurVideoUrl()"
+  ></ytp-field>
+  <div class="button-set">
+    <ytp-button [size]="'normal'" [type]="'primary'" [disabled]="formDisabled">
+      <span class="material-icons">queue_play_next</span>
+    </ytp-button>
+  </div>
+</form>

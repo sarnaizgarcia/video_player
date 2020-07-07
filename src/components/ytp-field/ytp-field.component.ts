@@ -34,6 +34,4 @@ export class YtpFieldComponent {
   public blurField(event) {
     this.onBlur.emit(event.target.value);
   }
-
-
 }

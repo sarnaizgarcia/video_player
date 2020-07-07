@@ -10,7 +10,7 @@
   color: var(--font-color-on-background);
   font-size: var(--font-size-normal);
   font-weight: var(--font-weight-normal);
-  margin-bottom: 10px;
+  margin: 20px 0px 10px 0px;
 }
 
 .text-field {

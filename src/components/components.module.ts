@@ -4,10 +4,12 @@ import { FormsModule } from '@angular/forms';
 
 import { YtpButtonComponent } from './ytp-button';
 import { YtpFieldComponent } from './ytp-field';
+import { YtpVideoFormComponent } from './ytp-video-form';
 
 const components = [
   YtpButtonComponent,
-  YtpFieldComponent
+  YtpFieldComponent,
+  YtpVideoFormComponent
 ];
 
 @NgModule({

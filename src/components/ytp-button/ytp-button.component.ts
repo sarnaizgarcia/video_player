@@ -21,6 +21,10 @@ export class YtpButtonComponent {
   @Output()
   public clickButton: EventEmitter<void> = new EventEmitter<void>();
 
+  get buttonType() {
+    return (this.type === "primary") ? 'submit' : 'button';
+  }
+
   public onClickButton() {
     if (!this.disabled) {
       this.clickButton.emit();
