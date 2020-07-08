@@ -1,0 +1,15 @@
+<div class="options-list">
+  <div class="title">
+    {{title}}
+  </div>
+  <div class="list" #elementsList>
+    <div class="option-row" *ngFor="let option of listOptions; let i=index">
+      <ytp-option
+        [option]="option"
+        [index]="i"
+        (onKeyPress)="keyPressed($event)"
+        (onSelect)="clickSelection($event)"
+      ></ytp-option>
+    </div>
+  </div>
+</div>

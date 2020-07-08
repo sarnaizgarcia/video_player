@@ -1,0 +1,24 @@
+.options-list {
+  width: 200px;
+  height: 500px;
+  border: 1px solid black;
+  border-radius: 4px;
+  overflow-y: auto;
+}
+
+.title {
+  background-color: var(--secondary-color);
+  color: var(--font-color-on-secondary);
+  font-size: var(--font-size-big);
+  border-bottom: solid 3px  black;
+  text-align: center;
+}
+
+.list {
+  padding: 0px 5px;
+}
+
+.option-row {
+  border-bottom: 3px solid black;
+  padding: 5px 0px;
+}

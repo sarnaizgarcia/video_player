@@ -1,6 +1,5 @@
-<ytp-option
-  [option]="option"
-  [index]="0"
-  (onSelect)="onEvent($event)"
-  (onKeyPress)="onEvent($event)"
-></ytp-option>
+<ytp-list-options
+  [listOptions]="options"
+  [title]="'Test of list'"
+  (onOptionSelected)="onEvent($event)"
+></ytp-list-options>
