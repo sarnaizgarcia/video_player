@@ -1,6 +1,13 @@
 <div class="container-player">
   <ng-container *ngIf="videoUrl !== ''; else elseTemplate">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/0DuXjdkAYrg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <youtube-player 
+      [videoId]="videoUrl" 
+      suggestedQuality="default"
+      [height]="315" 
+      [width]="560"
+      [startSeconds]="4"
+    >
+    </youtube-player>
   </ng-container>
   <ng-template #elseTemplate>
       <div class="empty-player">

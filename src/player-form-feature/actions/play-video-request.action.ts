@@ -1,12 +1,12 @@
 import { Action, createAction, props } from '@ngrx/store';
 
-import { VideoData } from '../entities';
+import { VideoData } from '../../entities';
 
 export interface VideoDataAction extends Action {
   data: VideoData
 }
 
-export const playVideoRequestType = '[play-video] play new video request'
+export const playVideoRequestType = '[player-video-form] play new video request';
 
 export const playVideoRequest = createAction(
   playVideoRequestType,

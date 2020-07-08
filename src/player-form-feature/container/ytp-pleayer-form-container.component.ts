@@ -14,10 +14,11 @@ export class YtpPlayerFormContainer {
   constructor( private store: Store<State> ) {}
 
   public onVideoSubmit(event) {
+    const videoCode = event.videUrl.split('=')[1];
     const action = playVideoRequest({
       data: {
         tagName: event.tagName,
-        youtubeUrl: event.videUrl
+        youtubeUrl: videoCode
       }
     })
 

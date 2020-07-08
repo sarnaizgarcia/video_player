@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { YouTubePlayerModule } from "@angular/youtube-player";
 
 import { YtpButtonComponent } from './ytp-button';
 import { YtpFieldComponent } from './ytp-field';
@@ -20,7 +21,7 @@ const components = [
 
 @NgModule({
   declarations: [...components],
-  imports: [ CommonModule, FormsModule ],
+  imports: [ CommonModule, FormsModule, YouTubePlayerModule ],
   exports: [...components],
 })
 export class ComponentsModule {}

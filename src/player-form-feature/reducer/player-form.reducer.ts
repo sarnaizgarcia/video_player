@@ -1,21 +1,20 @@
 import { createReducer, on, Action } from '@ngrx/store';
 
-import { VideoData } from '../entities';
+import { VideoData } from '../../entities';
 import * as playerFormActions from '../actions';
 
-export interface NewPlayerFormState {
-  urlToPlay: string;
+export interface PlayerFormState {
+  urlToPlay: VideoData | null;
   historyUrl: VideoData | null;
 }
 
-export const initialState: NewPlayerFormState = {
-  urlToPlay: '',
+export const initialState: PlayerFormState = {
+  urlToPlay: null,
   historyUrl: null
 };
 
-function onPlayerVideoRequest (state: NewPlayerFormState, action: playerFormActions.VideoDataAction) {
-  console.log('NNN action data: ', action.data);
-  return Object.assign({...state}, { urlToPlay: action.data.youtubeUrl, historyUrl: {...action.data }});
+function onPlayerVideoRequest (state: PlayerFormState, action: playerFormActions.VideoDataAction) {
+  return Object.assign({...state}, { urlToPlay: {...action.data}, historyUrl: {...action.data }});
 }
 
 const playerFormReducer = createReducer(
@@ -23,6 +22,6 @@ const playerFormReducer = createReducer(
   on(playerFormActions.playVideoRequest, onPlayerVideoRequest)
 );
 
-export function reducer (state: NewPlayerFormState | undefined, action: Action) {
+export function reducer (state: PlayerFormState | undefined, action: Action) {
   return playerFormReducer(state, action);
 }

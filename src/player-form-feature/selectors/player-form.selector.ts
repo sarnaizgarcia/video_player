@@ -1,7 +1,7 @@
-import { NewPlayerFormState } from '../reducer';
+import { PlayerFormState } from '../reducer';
 
 export const FEATURE_PLAYER_FORM = 'playerForm';
 
 export interface State {
-  [FEATURE_PLAYER_FORM]: NewPlayerFormState
+  [FEATURE_PLAYER_FORM]: PlayerFormState
 };

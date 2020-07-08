@@ -5,7 +5,8 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { AppComponent } from './app.component';
-import { PlayerFormModuleModule } from '../player-form-feature';
+import { PlayerFormFeatureModule } from '../player-form-feature';
+import { VideoPlayerFeatureModule } from '../video-player-feature';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { PlayerFormModuleModule } from '../player-form-feature';
   ],
   imports: [
     BrowserModule,
-    PlayerFormModuleModule,
+    PlayerFormFeatureModule,
+    VideoPlayerFeatureModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({

@@ -16,4 +16,4 @@ import { FEATURE_PLAYER_FORM } from './selectors';
   ],
   exports: [ YtpPlayerFormContainer ],
 })
-export class PlayerFormModuleModule {}
+export class PlayerFormFeatureModule {}
