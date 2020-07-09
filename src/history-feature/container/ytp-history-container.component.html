@@ -1,0 +1,5 @@
+<ytp-list-options
+  [title]="'History'"
+  [listOptions]="(listOfOption$ | async)"
+  (onOptionSelected)="videoSelected($event)"
+></ytp-list-options>

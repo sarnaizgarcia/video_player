@@ -1,2 +1,2 @@
 export * from './ytp-option.component';
-export * from './ytp-option-types';
+export * from '../../entities/ytp-option-types';

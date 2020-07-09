@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy  } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 
-import { State, videoToPlaySelector } from '../selectors';
+import { State, videoToPlayFromFormSelector, videoToPlayFromHistory } from '../selectors';
 import { VideoData } from '../../entities';
 import { removeBookmarkRequest, bookmarkRequest } from '../actions';
 
@@ -23,12 +23,20 @@ export class YtpVideoPlayerContainer implements OnInit, OnDestroy{
 
   ngOnInit() {
     this.subscriptions.push(
-      this.store.pipe(select(videoToPlaySelector))
+      this.store.pipe(select(videoToPlayFromFormSelector))
         .subscribe((videoData: VideoData) => {
           this.tagName = videoData.tagName;
           this.videoUrl = videoData.youtubeUrl;
         })
     );
+
+    this.subscriptions.push(
+      this.store.pipe(select(videoToPlayFromHistory))
+        .subscribe((videoData: VideoData) => {
+          this.tagName = videoData.tagName;
+          this.videoUrl = videoData.youtubeUrl;
+        })
+    )
   }
 
   ngOnDestroy() {

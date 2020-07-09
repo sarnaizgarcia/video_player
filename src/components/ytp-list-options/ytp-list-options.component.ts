@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter, ViewChild } from '@angular/core';
-import { ListOptions } from './ytp-list-options-types';
-import { Option, KeyEventData } from '../ytp-option';
+import { ListOptions } from '../../entities';
+import { Option, KeyEventData } from '../../entities';
 
 @Component({
   selector: 'ytp-list-options',

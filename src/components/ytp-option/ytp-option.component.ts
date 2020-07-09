@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
-import { Option, KeyEventData } from './ytp-option-types';
+import { Option, KeyEventData } from '../../entities';
 
 @Component({
   selector: 'ytp-option',
