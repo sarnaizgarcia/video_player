@@ -1,10 +1,12 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Store, select } from '@ngrx/store';
-import { Subscription, Observable } from 'rxjs';
-import { filter, map } from 'rxjs/operators';
+import { Subscription } from 'rxjs';
+import { filter } from 'rxjs/operators';
 
 import * as bookmarkActions from '../actions';
-import { State, videoPlayerBookmarkSelector, bookmarkListSelector } from '../selectors';
+import { bookmarkListSelector } from '../selectors';
+import { videoToAddBookmarkSelector } from '../../video-player-feature';
+import { playVideoRequest } from '../../history-feature';
 import { Option, ListOptions, VideoData } from '../../entities';
 
 @Component({
@@ -18,14 +20,14 @@ export class YtpBookmarkContainer implements OnInit, OnDestroy {
 
   public subscriptions: Subscription[] = [];
 
-  constructor( private store: Store<State>) {}
+  constructor( private store: Store<any>) {}
 
   ngOnInit() {
     this.store.dispatch(bookmarkActions.getCurrentBookmarkRequest());
 
     this.subscriptions.push(
       this.store.pipe(
-        select(videoPlayerBookmarkSelector),
+        select(videoToAddBookmarkSelector),
         filter((videoData: VideoData) => (videoData.youtubeUrl !== '' && videoData.tagName !== ''))
       )
       .subscribe((videoData: VideoData) => {
@@ -62,12 +64,12 @@ export class YtpBookmarkContainer implements OnInit, OnDestroy {
   }
 
   public videoSelected(option: Option) {
-    const action = bookmarkActions.playVideoRequest({
+    const action = playVideoRequest({
       data: {
         tagName: option.name,
         youtubeUrl: option.value
       }
-    });
+    })
 
     this.store.dispatch(action);
   }

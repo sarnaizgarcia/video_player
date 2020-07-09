@@ -1,3 +1,3 @@
 export * from './history-feature.module';
-export { FEATURE_HISTORY } from './selectors';
-export { HistoryState } from './reducer';
+export { videoToPlayFromHistorySelector } from './selectors';
+export { playVideoRequest } from './actions';

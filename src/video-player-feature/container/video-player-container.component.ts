@@ -3,7 +3,8 @@ import { Store, select } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
 
-import { State, videoToPlayFromFormSelector, videoToPlayFromHistory } from '../selectors';
+import { videoToPlayFromFormSelector } from '../../player-form-feature';
+import { videoToPlayFromHistorySelector } from '../../history-feature';
 import { VideoData } from '../../entities';
 import { removeBookmarkRequest, bookmarkRequest } from '../actions';
 
@@ -20,32 +21,37 @@ export class YtpVideoPlayerContainer implements OnInit, OnDestroy{
   public videoUrl: string = ''
   
 
-  constructor( private store: Store<State>) {}
+  constructor( private store: Store<any>) {}
 
   ngOnInit() {
     this.subscriptions.push(
       this.store.pipe(
         select(videoToPlayFromFormSelector),
-        filter((videoData: VideoData) => (videoData.youtubeUrl !== '') && (videoData.tagName !== ''))
+        filter(this.filterEmptyVideoData.bind(this))
       )
-        .subscribe((videoData: VideoData) => {
-          this.tagName = videoData.tagName;
-          this.videoUrl = videoData.youtubeUrl;
-        })
+      .subscribe(this.setVideoData.bind(this))
     );
 
     this.subscriptions.push(
       this.store.pipe(
-        select(videoToPlayFromHistory),
-        filter((videoData: VideoData) => (videoData.youtubeUrl !== '') && (videoData.tagName !== ''))
+        select(videoToPlayFromHistorySelector),
+        filter(this.filterEmptyVideoData.bind(this))
       )
-        .subscribe((videoData: VideoData) => {
-          this.tagName = videoData.tagName;
-          this.videoUrl = videoData.youtubeUrl;
-        })
+        .subscribe(this.setVideoData.bind(this))
     )
   }
 
+  private setVideoData(videoData: VideoData) {
+    this.tagName = videoData.tagName;
+    this.videoUrl = videoData.youtubeUrl;
+  }
+
+  private filterEmptyVideoData(videoData: VideoData) {
+    const isEmptyObject = Object.keys(videoData).length === 0;
+    return (!isEmptyObject && videoData.tagName !== '' && videoData.youtubeUrl !== '');
+  }
+
+  
   ngOnDestroy() {
     for (const subscription of this.subscriptions) {
       subscription.unsubscribe();

@@ -1,9 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Subscription, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, filter } from 'rxjs/operators';
 
-import { State, videoToAddHistorySelector, historyListSelector} from '../selectors'
+import { historyListSelector} from '../selectors'
+import { videoToAddHistorySelector } from '../../player-form-feature';
 import { addVideoHistoryRequest, playVideoRequest, requestCurrentHistory } from '../actions';
 import { Option, ListOptions, VideoData } from '../../entities';
 
@@ -24,13 +25,16 @@ export class YtpHisotryContainer implements OnInit, OnDestroy {
 
   public subscriptions: Subscription[] = [];
 
-  constructor( private store: Store<State>) {}
+  constructor( private store: Store<any>) {}
 
   ngOnInit() {
     this.store.dispatch(requestCurrentHistory());
     
     this.subscriptions.push(
-      this.store.pipe(select(videoToAddHistorySelector))
+      this.store.pipe(
+        select(videoToAddHistorySelector),
+        filter((videoData: VideoData) => (videoData.tagName !== '' && videoData.youtubeUrl !== ''))
+      )
         .subscribe((videoToHistory: VideoData) => {
           if (videoToHistory.tagName !== '' && videoToHistory.youtubeUrl !== '') {
             const action = addVideoHistoryRequest({
