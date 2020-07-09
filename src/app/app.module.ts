@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { PlayerFormFeatureModule } from '../player-form-feature';
 import { VideoPlayerFeatureModule } from '../video-player-feature';
 import { HistoryFeatureModule } from '../history-feature';
+import { BookmarkFeatureModule } from '../bookmark-feature';
 import { RepositoryModule } from '../repositories';
 
 @NgModule({
@@ -19,6 +20,7 @@ import { RepositoryModule } from '../repositories';
     PlayerFormFeatureModule,
     VideoPlayerFeatureModule,
     HistoryFeatureModule,
+    BookmarkFeatureModule,
     RepositoryModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),

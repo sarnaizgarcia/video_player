@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { createEffect, Actions, ofType } from '@ngrx/effects';
 import { Action } from '@ngrx/store';
-import { switchMap, map} from 'rxjs/operators'
+import { concatMap, map} from 'rxjs/operators'
 
 import { HistoryRepositoryService } from '../../repositories';
 import * as historyActions from '../actions';
@@ -14,7 +14,7 @@ export class HistoryEffectsService {
     () => this.action$
       .pipe(
         ofType(historyActions.addVideoHistoryType),
-        switchMap((action: historyActions.AddVideoHistoryAction) => {
+        concatMap((action: historyActions.AddVideoHistoryAction) => {
           return this.hisotryRepo.addVideoInHistory(action.data);
         }),
         map((history: VideoData[]) => {
@@ -27,7 +27,7 @@ export class HistoryEffectsService {
     () => this.action$
       .pipe(
         ofType(historyActions.requestCurrentHistoryType),
-        switchMap((action: Action) => {
+        concatMap((action: Action) => {
           return this.hisotryRepo.getHistory()
         }),
         map((history: VideoData[]) => {

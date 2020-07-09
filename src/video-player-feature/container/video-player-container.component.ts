@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy  } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Subscription } from 'rxjs';
+import { filter } from 'rxjs/operators';
 
 import { State, videoToPlayFromFormSelector, videoToPlayFromHistory } from '../selectors';
 import { VideoData } from '../../entities';
@@ -23,7 +24,10 @@ export class YtpVideoPlayerContainer implements OnInit, OnDestroy{
 
   ngOnInit() {
     this.subscriptions.push(
-      this.store.pipe(select(videoToPlayFromFormSelector))
+      this.store.pipe(
+        select(videoToPlayFromFormSelector),
+        filter((videoData: VideoData) => (videoData.youtubeUrl !== '') && (videoData.tagName !== ''))
+      )
         .subscribe((videoData: VideoData) => {
           this.tagName = videoData.tagName;
           this.videoUrl = videoData.youtubeUrl;
@@ -31,7 +35,10 @@ export class YtpVideoPlayerContainer implements OnInit, OnDestroy{
     );
 
     this.subscriptions.push(
-      this.store.pipe(select(videoToPlayFromHistory))
+      this.store.pipe(
+        select(videoToPlayFromHistory),
+        filter((videoData: VideoData) => (videoData.youtubeUrl !== '') && (videoData.tagName !== ''))
+      )
         .subscribe((videoData: VideoData) => {
           this.tagName = videoData.tagName;
           this.videoUrl = videoData.youtubeUrl;

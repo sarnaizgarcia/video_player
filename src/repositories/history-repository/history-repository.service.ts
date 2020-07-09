@@ -16,7 +16,7 @@ export class HistoryRepositoryService {
     }
 
     if (videoData.tagName !== '' && videoData.youtubeUrl !== '') {
-      history.push(videoData);
+      history.unshift(videoData);
 
       localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
     }
