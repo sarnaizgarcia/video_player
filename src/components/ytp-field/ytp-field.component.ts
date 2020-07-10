@@ -26,6 +26,12 @@ export class YtpFieldComponent {
   @Output()
   public onBlur: EventEmitter<string> = new EventEmitter<string>();
 
+  @Output()
+  public onFieldChange: EventEmitter<any> = new EventEmitter<any>();
+
+  @Output()
+  public onFocus: EventEmitter<any> = new EventEmitter<any>();
+
   set inputValue(value) {
     this.fieldValue = value;
     this.inputValueChange.emit(value);
@@ -33,5 +39,13 @@ export class YtpFieldComponent {
 
   public blurField(event) {
     this.onBlur.emit(event.target.value);
+  }
+
+  public onValueChange(event) {
+    this.onFieldChange.emit(event);
+  }
+
+  public focusField(event) {
+    this.onFocus.emit(event);
   }
 }

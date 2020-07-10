@@ -16,6 +16,9 @@ export class YtpVideoFormComponent {
   public tagName = ''
   public videoUrl = ''
 
+  private isTagNameDirty = false;
+  private isVideoUrlDirty = false;
+
   @Output()
   public onSubmitVideo: EventEmitter<ytpFormData> = new EventEmitter<ytpFormData>();
 
@@ -34,18 +37,30 @@ export class YtpVideoFormComponent {
     this.formDisabled = !(this.validateTagName() && this.validateVideoURL());
   }
 
-  public onBlurTagName() {
-    this.tagNameValidationError = (this.validateTagName())
-      ? '' : 'The tag name is a required field';
-
-    this.enableForm();
+  public onFocusTagName() {
+    this.isTagNameDirty = true;
   }
 
-  public onBlurVideoUrl() {
-    this.videoUrlValidationError = (this.validateVideoURL())
+  public onFocusVideoUrl() {
+    this.isVideoUrlDirty = true;
+  }
+
+  public onChangeTagName() {
+    if (this.isTagNameDirty) {
+      this.tagNameValidationError = (this.validateTagName())
       ? '' : 'A valid youtube url should be provided'
 
-    this.enableForm();
+      this.enableForm();
+    }
+  }
+
+  public onChangeVideoURL() {
+    if (this.isVideoUrlDirty) {
+      this.videoUrlValidationError = (this.validateVideoURL())
+      ? '' : 'A valid youtube url should be provided'
+
+      this.enableForm();
+    }
   }
 
   public submitAction() {

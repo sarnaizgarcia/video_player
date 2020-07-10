@@ -4,14 +4,16 @@
     [error]="tagNameValidationError"
     class="field"
     [(inputValue)]="tagName"
-    (onBlur)="onBlurTagName()"
+    (onFocus)="onFocusTagName()"
+    (onFieldChange)="onChangeTagName()"
   ></ytp-field>
   <ytp-field
     [label]="'Video url*'"
     [error]="videoUrlValidationError"
     class="field"
     [(inputValue)]="videoUrl"
-    (onBlur)="onBlurVideoUrl()"
+    (onFocus)="onFocusVideoUrl()"
+    (onFieldChange)="onChangeVideoURL()"
   ></ytp-field>
   <div class="button-set">
     <ytp-button [size]="'normal'" [type]="'primary'" [disabled]="formDisabled">

@@ -6,6 +6,8 @@
     name="input-{{label}}"
     [(ngModel)]="inputValue"
     (blur)="blurField($event)"
+    (input)="onValueChange($event)"
+    (focus)="focusField($event)"
   />
   <span class="error-field">{{error}}</span>
 </div>
